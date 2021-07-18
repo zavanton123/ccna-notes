@@ -202,6 +202,18 @@ conf t
 do show ip int br
 
 
+# HOW TO JUMP FROM ONE MODE TO ANOTHER MODE
+en
+conf t
+int gig 0/0
+description This is some description
+exit
+router rip
+### jump directly to g 0/0 config mode
+int gi 0/0
+
+
+
 
 
 
