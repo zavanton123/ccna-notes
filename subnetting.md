@@ -29,6 +29,7 @@ class C: 192.168.*.*
 169.254.*.* (auto generation of IP addresses)
 
 
+### VLSM (Variable Length Subnet Masking)
 
 
 

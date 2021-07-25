@@ -1,11 +1,17 @@
+# Redis
+
+# Why use Redis
 ### traditional DB is too slow
-150 - 200 records per second
+### 150 - 200 records per second
 
 ### in memory db - memcached
-hundreds of thousands operations per second
+### hundreds of thousands operations per second
 
-### Redis
+### What is Redis?
+- NoSQL database
 - key value storage
+- complex data type
+- pub/sub channels
 
 
 ### Redis port
@@ -122,6 +128,10 @@ LLEN mylist
 
 
 # SORTED SETS
+ZADD persons 1980 'Tom'
+ZADD persons 1990 'Jack'
+ZRANGE persons 0 -1
+ZRANGE persons 0 -1 WITHSCORES
 
 
 
@@ -134,4 +144,32 @@ LLEN mylist
 
 
 
+# TRANSACTIONS (i.e. operations are queued)
+### put the operations into a queue and then execute them
+MULTI 
+INCR foo
+DECR bar
+EXEC
+
+### queued operations can be discarded
+MULTI 
+INCR foo
+DECR bar
+DISCARD
+
+
+
+
+
+
+
+
+
+# PUB/SUB
+### client 1 subscribes to the channel 'news'
+SUBSCRIBE news
+
+
+### client 2 publishes and client 1 receives the message
+PUBLISH news 'hello world'
 
